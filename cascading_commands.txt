@@ -1,0 +1,3 @@
+hadoop fs -put weather.rf.xml /user/oracle
+
+hadoop jar pmml_deploy/build/libs/pmml_deploy.jar /user/oracle/weather_forest.rf.xml /user/oracle/weather/cleaned_history/2011 /user/oracle/weather/incorrect_obs /user/oracle/weather_pattern_trap

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+<!--                          Input settings                             -->
+
+ <property>
+   <name>mapreduce.inputformat.class</name>
+   <value>oracle.hadoop.loader.lib.input.DelimitedTextInputFormat</value>
+ </property>
+
+ <property>
+   <name>mapred.input.dir</name>
+   <value>/user/oracle/basket_transactions/00*</value>
+ </property>
+
+ <property>
+   <name>oracle.hadoop.loader.input.fieldTerminator</name>
+   <value>\u0009</value>
+ </property>
+
+
+<!--                          Output settings                             -->
+ <property>
+   <name>mapreduce.outputformat.class</name>
+   <value>oracle.hadoop.loader.lib.output.OCIOutputFormat</value>
+ </property>
+
+ <property>
+   <name>mapred.output.dir</name>
+   <value>temp_out_session</value>
+ </property>
+
+<!--                          Table information                           -->
+
+ <property>
+   <name>oracle.hadoop.loader.loaderMapFile</name>
+   <value>file:///mnt/shared/market_basket_example/olh/loaderMap_marketbasket.xml </value>
+ </property>    
+
+<!--                          Connection information                      -->
+
+<property>
+  <name>oracle.hadoop.loader.connection.url</name>
+  <value>jdbc:oracle:thin:@${HOST}:${TCPPORT}/${SERVICE_NAME}</value>
+</property>
+
+<property>
+  <name>TCPPORT</name>
+  <value>1521</value>
+</property>
+
+<property>
+  <name>HOST</name>
+  <value>bigdatalite.us.oracle.com</value>
+</property>
+
+<property>
+ <name>SERVICE_NAME</name>
+ <value>orcl</value>
+</property>
+
+<property>
+    <name>oracle.hadoop.loader.connection.user</name>
+    <value>MARKETBASKET</value>
+</property>
+
+<property>
+    <name>oracle.hadoop.loader.connection.password</name>
+    <value>welcome1</value>        
+    <description> Having password in cleartext is NOT RECOMMENDED - use Oracle Wallet instead </description>
+</property>
+
+</configuration>
+
