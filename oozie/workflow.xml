@@ -1,0 +1,30 @@
+<workflow-app name="WeatherMan" xmlns="uri:oozie:workflow:0.1">
+ <start to="ParseNCDCData"/>
+ <action name="ParseNCDCData">
+   <hive xmlns="uri:oozie:hive-action:0.2">
+     <job-tracker>localhost:8021</job-tracker>
+     <name-node>localhost:8020</name-node>
+     <configuration>
+       <property>
+         <name>oozie.hive.defaults</name>
+         <value>/user/oracle/weather_ooze/hive-default.xml</value>
+       </property>
+
+     </configuration>
+     <script>ncdc_parse.hql</script>
+   </hive>
+   <ok to="WeatherMan"/>
+   <error to="end"/>
+ </action>
+
+ <action name="WeatherMan">
+  <pig>
+     <job-tracker>localhost:8021</job-tracker>
+     <name-node>localhost:8020</name-node>
+     <script>weather_train.pig</script>
+  </pig>
+  <ok to="end"/>
+  <error to="end"/>
+ </action>
+ <end name="end"/>
+</workflow-app>

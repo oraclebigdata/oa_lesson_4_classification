@@ -1,0 +1,2200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.1" xmlns="http://www.dmg.org/PMML-4_1">
+  <Header copyright="oracle">
+    <Application name="KNIME" version="2.7.3"/>
+  </Header>
+  <DataDictionary numberOfFields="8">
+    <DataField name="stn" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="720046.0" rightMargin="994036.0"/>
+    </DataField>
+    <DataField name="wban" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="316.0" rightMargin="9999.0"/>
+    </DataField>
+    <DataField name="weather_year" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="2010.0" rightMargin="2010.0"/>
+    </DataField>
+    <DataField name="weather_month" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="1.0" rightMargin="12.0"/>
+    </DataField>
+    <DataField name="weather_day" optype="continuous" dataType="integer">
+      <Interval closure="closedClosed" leftMargin="1.0" rightMargin="31.0"/>
+    </DataField>
+    <DataField name="temp" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="2.9" rightMargin="106.1"/>
+    </DataField>
+    <DataField name="dewp" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="-7.4" rightMargin="9999.9"/>
+    </DataField>
+    <DataField name="weather" optype="categorical" dataType="string">
+      <Value value="Sunny"/>
+      <Value value="Rain"/>
+      <Value value="Fog"/>
+      <Value value="Thunder"/>
+      <Value value="Snow"/>
+    </DataField>
+  </DataDictionary>
+  <TreeModel modelName="DecisionTree" functionName="classification" splitCharacteristic="binarySplit" missingValueStrategy="lastPrediction" noTrueChildStrategy="returnNullPrediction">
+    <MiningSchema>
+      <MiningField name="stn" invalidValueTreatment="asIs"/>
+      <MiningField name="wban" invalidValueTreatment="asIs"/>
+      <MiningField name="weather_year" invalidValueTreatment="asIs"/>
+      <MiningField name="weather_month" invalidValueTreatment="asIs"/>
+      <MiningField name="weather_day" invalidValueTreatment="asIs"/>
+      <MiningField name="temp" invalidValueTreatment="asIs"/>
+      <MiningField name="dewp" invalidValueTreatment="asIs"/>
+      <MiningField name="weather" invalidValueTreatment="asIs" usageType="predicted"/>
+    </MiningSchema>
+    <Node id="0" score="Sunny" recordCount="8453.0">
+      <True/>
+      <ScoreDistribution value="Sunny" recordCount="8215.0"/>
+      <ScoreDistribution value="Rain" recordCount="111.0"/>
+      <ScoreDistribution value="Fog" recordCount="113.0"/>
+      <ScoreDistribution value="Thunder" recordCount="1.0"/>
+      <ScoreDistribution value="Snow" recordCount="13.0"/>
+      <Node id="1" score="Sunny" recordCount="2219.0">
+        <SimplePredicate field="temp" operator="lessOrEqual" value="52.2"/>
+        <ScoreDistribution value="Sunny" recordCount="2056.0"/>
+        <ScoreDistribution value="Rain" recordCount="72.0"/>
+        <ScoreDistribution value="Fog" recordCount="77.0"/>
+        <ScoreDistribution value="Thunder" recordCount="1.0"/>
+        <ScoreDistribution value="Snow" recordCount="13.0"/>
+        <Node id="6" score="Sunny" recordCount="1517.0">
+          <SimplePredicate field="stn" operator="lessOrEqual" value="725940.0"/>
+          <ScoreDistribution value="Sunny" recordCount="1355.0"/>
+          <ScoreDistribution value="Rain" recordCount="71.0"/>
+          <ScoreDistribution value="Fog" recordCount="77.0"/>
+          <ScoreDistribution value="Thunder" recordCount="1.0"/>
+          <ScoreDistribution value="Snow" recordCount="13.0"/>
+          <Node id="7" score="Sunny" recordCount="913.0">
+            <SimplePredicate field="stn" operator="lessOrEqual" value="724830.0"/>
+            <ScoreDistribution value="Sunny" recordCount="891.0"/>
+            <ScoreDistribution value="Rain" recordCount="12.0"/>
+            <ScoreDistribution value="Fog" recordCount="10.0"/>
+            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+            <ScoreDistribution value="Snow" recordCount="0.0"/>
+            <Node id="9" score="Sunny" recordCount="720.0">
+              <SimplePredicate field="stn" operator="lessOrEqual" value="723826.0"/>
+              <ScoreDistribution value="Sunny" recordCount="718.0"/>
+              <ScoreDistribution value="Rain" recordCount="2.0"/>
+              <ScoreDistribution value="Fog" recordCount="0.0"/>
+              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+              <ScoreDistribution value="Snow" recordCount="0.0"/>
+              <Node id="10" score="Sunny" recordCount="582.0">
+                <SimplePredicate field="weather_month" operator="lessOrEqual" value="11.0"/>
+                <ScoreDistribution value="Sunny" recordCount="582.0"/>
+                <ScoreDistribution value="Rain" recordCount="0.0"/>
+                <ScoreDistribution value="Fog" recordCount="0.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+              </Node>
+              <Node id="12" score="Sunny" recordCount="138.0">
+                <SimplePredicate field="weather_month" operator="greaterThan" value="11.0"/>
+                <ScoreDistribution value="Sunny" recordCount="136.0"/>
+                <ScoreDistribution value="Rain" recordCount="2.0"/>
+                <ScoreDistribution value="Fog" recordCount="0.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="13" score="Sunny" recordCount="85.0">
+                  <SimplePredicate field="stn" operator="lessOrEqual" value="722920.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="85.0"/>
+                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                </Node>
+                <Node id="14" score="Sunny" recordCount="53.0">
+                  <SimplePredicate field="stn" operator="greaterThan" value="722920.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="51.0"/>
+                  <ScoreDistribution value="Rain" recordCount="2.0"/>
+                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="15" score="Sunny" recordCount="33.0">
+                    <SimplePredicate field="weather_day" operator="lessOrEqual" value="21.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="33.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                  <Node id="16" score="Sunny" recordCount="20.0">
+                    <SimplePredicate field="weather_day" operator="greaterThan" value="21.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="18.0"/>
+                    <ScoreDistribution value="Rain" recordCount="2.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="17" score="Rain" recordCount="2.0">
+                      <SimplePredicate field="weather_day" operator="lessOrEqual" value="22.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                      <ScoreDistribution value="Rain" recordCount="2.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="18" score="Sunny" recordCount="18.0">
+                      <SimplePredicate field="weather_day" operator="greaterThan" value="22.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="18.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node id="19" score="Sunny" recordCount="193.0">
+              <SimplePredicate field="stn" operator="greaterThan" value="723826.0"/>
+              <ScoreDistribution value="Sunny" recordCount="173.0"/>
+              <ScoreDistribution value="Rain" recordCount="10.0"/>
+              <ScoreDistribution value="Fog" recordCount="10.0"/>
+              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+              <ScoreDistribution value="Snow" recordCount="0.0"/>
+              <Node id="20" score="Sunny" recordCount="74.0">
+                <SimplePredicate field="wban" operator="lessOrEqual" value="2315.0"/>
+                <ScoreDistribution value="Sunny" recordCount="55.0"/>
+                <ScoreDistribution value="Rain" recordCount="10.0"/>
+                <ScoreDistribution value="Fog" recordCount="9.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="21" score="Sunny" recordCount="71.0">
+                  <SimplePredicate field="dewp" operator="lessOrEqual" value="46.6"/>
+                  <ScoreDistribution value="Sunny" recordCount="55.0"/>
+                  <ScoreDistribution value="Rain" recordCount="7.0"/>
+                  <ScoreDistribution value="Fog" recordCount="9.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="22" score="Fog" recordCount="4.0">
+                    <SimplePredicate field="temp" operator="lessOrEqual" value="41.5"/>
+                    <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="3.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                  <Node id="25" score="Sunny" recordCount="67.0">
+                    <SimplePredicate field="temp" operator="greaterThan" value="41.5"/>
+                    <ScoreDistribution value="Sunny" recordCount="54.0"/>
+                    <ScoreDistribution value="Rain" recordCount="7.0"/>
+                    <ScoreDistribution value="Fog" recordCount="6.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="26" score="Sunny" recordCount="21.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="39.4"/>
+                      <ScoreDistribution value="Sunny" recordCount="21.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="27" score="Sunny" recordCount="46.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="39.4"/>
+                      <ScoreDistribution value="Sunny" recordCount="33.0"/>
+                      <ScoreDistribution value="Rain" recordCount="7.0"/>
+                      <ScoreDistribution value="Fog" recordCount="6.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="28" score="Fog" recordCount="13.0">
+                        <SimplePredicate field="temp" operator="lessOrEqual" value="48.4"/>
+                        <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                        <ScoreDistribution value="Rain" recordCount="4.0"/>
+                        <ScoreDistribution value="Fog" recordCount="5.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="29" score="Sunny" recordCount="5.0">
+                          <SimplePredicate field="dewp" operator="lessOrEqual" value="41.1"/>
+                          <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                          <ScoreDistribution value="Rain" recordCount="2.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="30" score="Sunny" recordCount="3.0">
+                            <SimplePredicate field="weather_month" operator="lessOrEqual" value="1.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                          <Node id="31" score="Rain" recordCount="2.0">
+                            <SimplePredicate field="weather_month" operator="greaterThan" value="1.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                            <ScoreDistribution value="Rain" recordCount="2.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="38" score="Fog" recordCount="8.0">
+                          <SimplePredicate field="dewp" operator="greaterThan" value="41.1"/>
+                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                          <ScoreDistribution value="Rain" recordCount="2.0"/>
+                          <ScoreDistribution value="Fog" recordCount="5.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="39" score="Fog" recordCount="6.0">
+                            <SimplePredicate field="weather_day" operator="lessOrEqual" value="16.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="5.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                          <Node id="42" score="Rain" recordCount="2.0">
+                            <SimplePredicate field="weather_day" operator="greaterThan" value="16.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                            <ScoreDistribution value="Rain" recordCount="2.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node id="43" score="Sunny" recordCount="33.0">
+                        <SimplePredicate field="temp" operator="greaterThan" value="48.4"/>
+                        <ScoreDistribution value="Sunny" recordCount="29.0"/>
+                        <ScoreDistribution value="Rain" recordCount="3.0"/>
+                        <ScoreDistribution value="Fog" recordCount="1.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="44" score="Sunny" recordCount="31.0">
+                          <SimplePredicate field="dewp" operator="lessOrEqual" value="45.9"/>
+                          <ScoreDistribution value="Sunny" recordCount="28.0"/>
+                          <ScoreDistribution value="Rain" recordCount="3.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="45" score="Sunny" recordCount="23.0">
+                            <SimplePredicate field="weather_month" operator="lessOrEqual" value="4.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="22.0"/>
+                            <ScoreDistribution value="Rain" recordCount="1.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                          <Node id="50" score="Sunny" recordCount="8.0">
+                            <SimplePredicate field="weather_month" operator="greaterThan" value="4.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                            <ScoreDistribution value="Rain" recordCount="2.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="51" score="Sunny" recordCount="4.0">
+                              <SimplePredicate field="weather_day" operator="lessOrEqual" value="17.0"/>
+                              <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                              <ScoreDistribution value="Rain" recordCount="0.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                            <Node id="52" score="Sunny" recordCount="4.0">
+                              <SimplePredicate field="weather_day" operator="greaterThan" value="17.0"/>
+                              <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                              <ScoreDistribution value="Rain" recordCount="2.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              <Node id="53" score="Sunny" recordCount="2.0">
+                                <SimplePredicate field="temp" operator="lessOrEqual" value="48.8"/>
+                                <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                                <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              </Node>
+                              <Node id="54" score="Rain" recordCount="2.0">
+                                <SimplePredicate field="temp" operator="greaterThan" value="48.8"/>
+                                <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                                <ScoreDistribution value="Rain" recordCount="2.0"/>
+                                <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              </Node>
+                            </Node>
+                          </Node>
+                        </Node>
+                        <Node id="55" score="Sunny" recordCount="2.0">
+                          <SimplePredicate field="dewp" operator="greaterThan" value="45.9"/>
+                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="1.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="56" score="Rain" recordCount="3.0">
+                  <SimplePredicate field="dewp" operator="greaterThan" value="46.6"/>
+                  <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                  <ScoreDistribution value="Rain" recordCount="3.0"/>
+                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="57" score="Sunny" recordCount="119.0">
+                <SimplePredicate field="wban" operator="greaterThan" value="2315.0"/>
+                <ScoreDistribution value="Sunny" recordCount="118.0"/>
+                <ScoreDistribution value="Rain" recordCount="0.0"/>
+                <ScoreDistribution value="Fog" recordCount="1.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="64" score="Sunny" recordCount="604.0">
+            <SimplePredicate field="stn" operator="greaterThan" value="724830.0"/>
+            <ScoreDistribution value="Sunny" recordCount="464.0"/>
+            <ScoreDistribution value="Rain" recordCount="59.0"/>
+            <ScoreDistribution value="Fog" recordCount="67.0"/>
+            <ScoreDistribution value="Thunder" recordCount="1.0"/>
+            <ScoreDistribution value="Snow" recordCount="13.0"/>
+            <Node id="65" score="Sunny" recordCount="395.0">
+              <SimplePredicate field="weather_month" operator="lessOrEqual" value="6.0"/>
+              <ScoreDistribution value="Sunny" recordCount="345.0"/>
+              <ScoreDistribution value="Rain" recordCount="30.0"/>
+              <ScoreDistribution value="Fog" recordCount="20.0"/>
+              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+              <ScoreDistribution value="Snow" recordCount="0.0"/>
+              <Node id="66" score="Sunny" recordCount="290.0">
+                <SimplePredicate field="stn" operator="lessOrEqual" value="725846.0"/>
+                <ScoreDistribution value="Sunny" recordCount="270.0"/>
+                <ScoreDistribution value="Rain" recordCount="2.0"/>
+                <ScoreDistribution value="Fog" recordCount="18.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="67" score="Sunny" recordCount="69.0">
+                  <SimplePredicate field="wban" operator="lessOrEqual" value="2323.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="49.0"/>
+                  <ScoreDistribution value="Rain" recordCount="2.0"/>
+                  <ScoreDistribution value="Fog" recordCount="18.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="68" score="Sunny" recordCount="29.0">
+                    <SimplePredicate field="weather_month" operator="lessOrEqual" value="1.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="14.0"/>
+                    <ScoreDistribution value="Rain" recordCount="1.0"/>
+                    <ScoreDistribution value="Fog" recordCount="14.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="69" score="Sunny" recordCount="24.0">
+                      <SimplePredicate field="weather_day" operator="lessOrEqual" value="26.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="14.0"/>
+                      <ScoreDistribution value="Rain" recordCount="1.0"/>
+                      <ScoreDistribution value="Fog" recordCount="9.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="70" score="Fog" recordCount="16.0">
+                        <SimplePredicate field="weather_day" operator="lessOrEqual" value="17.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                        <ScoreDistribution value="Rain" recordCount="1.0"/>
+                        <ScoreDistribution value="Fog" recordCount="9.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="71" score="Sunny" recordCount="2.0">
+                          <SimplePredicate field="weather_day" operator="lessOrEqual" value="2.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="72" score="Fog" recordCount="14.0">
+                          <SimplePredicate field="weather_day" operator="greaterThan" value="2.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                          <ScoreDistribution value="Rain" recordCount="1.0"/>
+                          <ScoreDistribution value="Fog" recordCount="9.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="73" score="Fog" recordCount="10.0">
+                            <SimplePredicate field="weather_day" operator="lessOrEqual" value="12.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="6.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="74" score="Fog" recordCount="6.0">
+                              <SimplePredicate field="temp" operator="lessOrEqual" value="45.1"/>
+                              <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                              <ScoreDistribution value="Rain" recordCount="0.0"/>
+                              <ScoreDistribution value="Fog" recordCount="5.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                            <Node id="77" score="Sunny" recordCount="4.0">
+                              <SimplePredicate field="temp" operator="greaterThan" value="45.1"/>
+                              <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                              <ScoreDistribution value="Rain" recordCount="0.0"/>
+                              <ScoreDistribution value="Fog" recordCount="1.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                          </Node>
+                          <Node id="80" score="Fog" recordCount="4.0">
+                            <SimplePredicate field="weather_day" operator="greaterThan" value="12.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                            <ScoreDistribution value="Rain" recordCount="1.0"/>
+                            <ScoreDistribution value="Fog" recordCount="3.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node id="83" score="Sunny" recordCount="8.0">
+                        <SimplePredicate field="weather_day" operator="greaterThan" value="17.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="8.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="84" score="Fog" recordCount="5.0">
+                      <SimplePredicate field="weather_day" operator="greaterThan" value="26.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="5.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="85" score="Sunny" recordCount="40.0">
+                    <SimplePredicate field="weather_month" operator="greaterThan" value="1.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="35.0"/>
+                    <ScoreDistribution value="Rain" recordCount="1.0"/>
+                    <ScoreDistribution value="Fog" recordCount="4.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="86" score="Sunny" recordCount="21.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="43.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="21.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="87" score="Sunny" recordCount="19.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="43.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="14.0"/>
+                      <ScoreDistribution value="Rain" recordCount="1.0"/>
+                      <ScoreDistribution value="Fog" recordCount="4.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="88" score="Fog" recordCount="3.0">
+                        <SimplePredicate field="temp" operator="lessOrEqual" value="48.7"/>
+                        <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="2.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="89" score="Sunny" recordCount="16.0">
+                        <SimplePredicate field="temp" operator="greaterThan" value="48.7"/>
+                        <ScoreDistribution value="Sunny" recordCount="13.0"/>
+                        <ScoreDistribution value="Rain" recordCount="1.0"/>
+                        <ScoreDistribution value="Fog" recordCount="2.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="94" score="Sunny" recordCount="221.0">
+                  <SimplePredicate field="wban" operator="greaterThan" value="2323.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="221.0"/>
+                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="95" score="Sunny" recordCount="105.0">
+                <SimplePredicate field="stn" operator="greaterThan" value="725846.0"/>
+                <ScoreDistribution value="Sunny" recordCount="75.0"/>
+                <ScoreDistribution value="Rain" recordCount="28.0"/>
+                <ScoreDistribution value="Fog" recordCount="2.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="96" score="Sunny" recordCount="76.0">
+                  <SimplePredicate field="weather_day" operator="lessOrEqual" value="22.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="60.0"/>
+                  <ScoreDistribution value="Rain" recordCount="15.0"/>
+                  <ScoreDistribution value="Fog" recordCount="1.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="97" score="Sunny" recordCount="28.0">
+                    <SimplePredicate field="dewp" operator="lessOrEqual" value="41.8"/>
+                    <ScoreDistribution value="Sunny" recordCount="26.0"/>
+                    <ScoreDistribution value="Rain" recordCount="2.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="98" score="Sunny" recordCount="6.0">
+                      <SimplePredicate field="weather_day" operator="lessOrEqual" value="4.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                      <ScoreDistribution value="Rain" recordCount="2.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="99" score="Rain" recordCount="3.0">
+                        <SimplePredicate field="dewp" operator="lessOrEqual" value="37.8"/>
+                        <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                        <ScoreDistribution value="Rain" recordCount="2.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="100" score="Sunny" recordCount="3.0">
+                        <SimplePredicate field="dewp" operator="greaterThan" value="37.8"/>
+                        <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="101" score="Sunny" recordCount="22.0">
+                      <SimplePredicate field="weather_day" operator="greaterThan" value="4.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="22.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="102" score="Sunny" recordCount="48.0">
+                    <SimplePredicate field="dewp" operator="greaterThan" value="41.8"/>
+                    <ScoreDistribution value="Sunny" recordCount="34.0"/>
+                    <ScoreDistribution value="Rain" recordCount="13.0"/>
+                    <ScoreDistribution value="Fog" recordCount="1.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="103" score="Rain" recordCount="4.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="42.4"/>
+                      <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                      <ScoreDistribution value="Rain" recordCount="3.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="106" score="Sunny" recordCount="44.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="42.4"/>
+                      <ScoreDistribution value="Sunny" recordCount="33.0"/>
+                      <ScoreDistribution value="Rain" recordCount="10.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="107" score="Sunny" recordCount="13.0">
+                        <SimplePredicate field="temp" operator="lessOrEqual" value="49.4"/>
+                        <ScoreDistribution value="Sunny" recordCount="7.0"/>
+                        <ScoreDistribution value="Rain" recordCount="5.0"/>
+                        <ScoreDistribution value="Fog" recordCount="1.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="108" score="Sunny" recordCount="5.0">
+                          <SimplePredicate field="dewp" operator="lessOrEqual" value="43.7"/>
+                          <ScoreDistribution value="Sunny" recordCount="5.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="109" score="Rain" recordCount="8.0">
+                          <SimplePredicate field="dewp" operator="greaterThan" value="43.7"/>
+                          <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                          <ScoreDistribution value="Rain" recordCount="5.0"/>
+                          <ScoreDistribution value="Fog" recordCount="1.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="110" score="Sunny" recordCount="5.0">
+                            <SimplePredicate field="weather_day" operator="lessOrEqual" value="18.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                            <ScoreDistribution value="Rain" recordCount="2.0"/>
+                            <ScoreDistribution value="Fog" recordCount="1.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="111" score="Rain" recordCount="3.0">
+                              <SimplePredicate field="dewp" operator="lessOrEqual" value="44.6"/>
+                              <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                              <ScoreDistribution value="Rain" recordCount="2.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                            <Node id="112" score="Sunny" recordCount="2.0">
+                              <SimplePredicate field="dewp" operator="greaterThan" value="44.6"/>
+                              <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                              <ScoreDistribution value="Rain" recordCount="0.0"/>
+                              <ScoreDistribution value="Fog" recordCount="1.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                          </Node>
+                          <Node id="113" score="Rain" recordCount="3.0">
+                            <SimplePredicate field="weather_day" operator="greaterThan" value="18.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                            <ScoreDistribution value="Rain" recordCount="3.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node id="114" score="Sunny" recordCount="31.0">
+                        <SimplePredicate field="temp" operator="greaterThan" value="49.4"/>
+                        <ScoreDistribution value="Sunny" recordCount="26.0"/>
+                        <ScoreDistribution value="Rain" recordCount="5.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="115" score="Sunny" recordCount="22.0">
+                          <SimplePredicate field="dewp" operator="lessOrEqual" value="47.6"/>
+                          <ScoreDistribution value="Sunny" recordCount="17.0"/>
+                          <ScoreDistribution value="Rain" recordCount="5.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="116" score="Sunny" recordCount="13.0">
+                            <SimplePredicate field="dewp" operator="lessOrEqual" value="46.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="12.0"/>
+                            <ScoreDistribution value="Rain" recordCount="1.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                          <Node id="119" score="Sunny" recordCount="9.0">
+                            <SimplePredicate field="dewp" operator="greaterThan" value="46.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="5.0"/>
+                            <ScoreDistribution value="Rain" recordCount="4.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="120" score="Rain" recordCount="2.0">
+                              <SimplePredicate field="dewp" operator="lessOrEqual" value="46.3"/>
+                              <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                              <ScoreDistribution value="Rain" recordCount="2.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                            <Node id="121" score="Sunny" recordCount="7.0">
+                              <SimplePredicate field="dewp" operator="greaterThan" value="46.3"/>
+                              <ScoreDistribution value="Sunny" recordCount="5.0"/>
+                              <ScoreDistribution value="Rain" recordCount="2.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                        <Node id="134" score="Sunny" recordCount="9.0">
+                          <SimplePredicate field="dewp" operator="greaterThan" value="47.6"/>
+                          <ScoreDistribution value="Sunny" recordCount="9.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="160" score="Sunny" recordCount="29.0">
+                  <SimplePredicate field="weather_day" operator="greaterThan" value="22.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="15.0"/>
+                  <ScoreDistribution value="Rain" recordCount="13.0"/>
+                  <ScoreDistribution value="Fog" recordCount="1.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="161" score="Rain" recordCount="8.0">
+                    <SimplePredicate field="dewp" operator="lessOrEqual" value="41.7"/>
+                    <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                    <ScoreDistribution value="Rain" recordCount="6.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="162" score="Rain" recordCount="5.0">
+                      <SimplePredicate field="weather_month" operator="lessOrEqual" value="3.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                      <ScoreDistribution value="Rain" recordCount="5.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="163" score="Sunny" recordCount="3.0">
+                      <SimplePredicate field="weather_month" operator="greaterThan" value="3.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                      <ScoreDistribution value="Rain" recordCount="1.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="164" score="Sunny" recordCount="21.0">
+                    <SimplePredicate field="dewp" operator="greaterThan" value="41.7"/>
+                    <ScoreDistribution value="Sunny" recordCount="13.0"/>
+                    <ScoreDistribution value="Rain" recordCount="7.0"/>
+                    <ScoreDistribution value="Fog" recordCount="1.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="165" score="Sunny" recordCount="6.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="42.8"/>
+                      <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="166" score="Sunny" recordCount="15.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="42.8"/>
+                      <ScoreDistribution value="Sunny" recordCount="7.0"/>
+                      <ScoreDistribution value="Rain" recordCount="7.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="167" score="Rain" recordCount="11.0">
+                        <SimplePredicate field="weather_day" operator="lessOrEqual" value="27.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                        <ScoreDistribution value="Rain" recordCount="7.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="168" score="Sunny" recordCount="4.0">
+                          <SimplePredicate field="weather_day" operator="lessOrEqual" value="24.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                          <ScoreDistribution value="Rain" recordCount="1.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="171" score="Rain" recordCount="7.0">
+                          <SimplePredicate field="weather_day" operator="greaterThan" value="24.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                          <ScoreDistribution value="Rain" recordCount="6.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="185" score="Sunny" recordCount="4.0">
+                        <SimplePredicate field="weather_day" operator="greaterThan" value="27.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="1.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node id="188" score="Sunny" recordCount="209.0">
+              <SimplePredicate field="weather_month" operator="greaterThan" value="6.0"/>
+              <ScoreDistribution value="Sunny" recordCount="119.0"/>
+              <ScoreDistribution value="Rain" recordCount="29.0"/>
+              <ScoreDistribution value="Fog" recordCount="47.0"/>
+              <ScoreDistribution value="Thunder" recordCount="1.0"/>
+              <ScoreDistribution value="Snow" recordCount="13.0"/>
+              <Node id="189" score="Fog" recordCount="54.0">
+                <SimplePredicate field="weather_day" operator="lessOrEqual" value="10.0"/>
+                <ScoreDistribution value="Sunny" recordCount="17.0"/>
+                <ScoreDistribution value="Rain" recordCount="13.0"/>
+                <ScoreDistribution value="Fog" recordCount="21.0"/>
+                <ScoreDistribution value="Thunder" recordCount="1.0"/>
+                <ScoreDistribution value="Snow" recordCount="2.0"/>
+                <Node id="190" score="Fog" recordCount="29.0">
+                  <SimplePredicate field="temp" operator="lessOrEqual" value="46.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                  <ScoreDistribution value="Rain" recordCount="10.0"/>
+                  <ScoreDistribution value="Fog" recordCount="13.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="2.0"/>
+                  <Node id="191" score="Fog" recordCount="26.0">
+                    <SimplePredicate field="temp" operator="lessOrEqual" value="43.3"/>
+                    <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                    <ScoreDistribution value="Rain" recordCount="7.0"/>
+                    <ScoreDistribution value="Fog" recordCount="13.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="2.0"/>
+                    <Node id="192" score="Fog" recordCount="13.0">
+                      <SimplePredicate field="weather_month" operator="lessOrEqual" value="11.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                      <ScoreDistribution value="Rain" recordCount="1.0"/>
+                      <ScoreDistribution value="Fog" recordCount="9.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="2.0"/>
+                      <Node id="193" score="Snow" recordCount="3.0">
+                        <SimplePredicate field="dewp" operator="lessOrEqual" value="28.3"/>
+                        <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="1.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="2.0"/>
+                      </Node>
+                      <Node id="194" score="Fog" recordCount="10.0">
+                        <SimplePredicate field="dewp" operator="greaterThan" value="28.3"/>
+                        <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                        <ScoreDistribution value="Rain" recordCount="1.0"/>
+                        <ScoreDistribution value="Fog" recordCount="8.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="199" score="Rain" recordCount="13.0">
+                      <SimplePredicate field="weather_month" operator="greaterThan" value="11.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                      <ScoreDistribution value="Rain" recordCount="6.0"/>
+                      <ScoreDistribution value="Fog" recordCount="4.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="200" score="Rain" recordCount="3.0">
+                        <SimplePredicate field="dewp" operator="lessOrEqual" value="23.3"/>
+                        <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                        <ScoreDistribution value="Rain" recordCount="3.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="201" score="Fog" recordCount="10.0">
+                        <SimplePredicate field="dewp" operator="greaterThan" value="23.3"/>
+                        <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                        <ScoreDistribution value="Rain" recordCount="3.0"/>
+                        <ScoreDistribution value="Fog" recordCount="4.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="202" score="Fog" recordCount="2.0">
+                          <SimplePredicate field="temp" operator="lessOrEqual" value="35.2"/>
+                          <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="2.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="203" score="Sunny" recordCount="8.0">
+                          <SimplePredicate field="temp" operator="greaterThan" value="35.2"/>
+                          <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                          <ScoreDistribution value="Rain" recordCount="3.0"/>
+                          <ScoreDistribution value="Fog" recordCount="2.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="204" score="Rain" recordCount="5.0">
+                            <SimplePredicate field="dewp" operator="lessOrEqual" value="34.9"/>
+                            <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                            <ScoreDistribution value="Rain" recordCount="3.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="205" score="Rain" recordCount="2.0">
+                              <SimplePredicate field="weather_day" operator="lessOrEqual" value="4.0"/>
+                              <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                              <ScoreDistribution value="Rain" recordCount="2.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                            <Node id="206" score="Sunny" recordCount="3.0">
+                              <SimplePredicate field="weather_day" operator="greaterThan" value="4.0"/>
+                              <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                              <ScoreDistribution value="Rain" recordCount="1.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                          </Node>
+                          <Node id="207" score="Fog" recordCount="3.0">
+                            <SimplePredicate field="dewp" operator="greaterThan" value="34.9"/>
+                            <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="2.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node id="208" score="Rain" recordCount="3.0">
+                    <SimplePredicate field="temp" operator="greaterThan" value="43.3"/>
+                    <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                    <ScoreDistribution value="Rain" recordCount="3.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                </Node>
+                <Node id="209" score="Sunny" recordCount="25.0">
+                  <SimplePredicate field="temp" operator="greaterThan" value="46.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="13.0"/>
+                  <ScoreDistribution value="Rain" recordCount="3.0"/>
+                  <ScoreDistribution value="Fog" recordCount="8.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="1.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="210" score="Sunny" recordCount="13.0">
+                    <SimplePredicate field="dewp" operator="lessOrEqual" value="46.7"/>
+                    <ScoreDistribution value="Sunny" recordCount="11.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="2.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                  <Node id="215" score="Fog" recordCount="12.0">
+                    <SimplePredicate field="dewp" operator="greaterThan" value="46.7"/>
+                    <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                    <ScoreDistribution value="Rain" recordCount="3.0"/>
+                    <ScoreDistribution value="Fog" recordCount="6.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="1.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="216" score="Rain" recordCount="8.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="49.3"/>
+                      <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                      <ScoreDistribution value="Rain" recordCount="3.0"/>
+                      <ScoreDistribution value="Fog" recordCount="2.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="1.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="217" score="Fog" recordCount="2.0">
+                        <SimplePredicate field="temp" operator="lessOrEqual" value="48.7"/>
+                        <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="2.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="218" score="Rain" recordCount="6.0">
+                        <SimplePredicate field="temp" operator="greaterThan" value="48.7"/>
+                        <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                        <ScoreDistribution value="Rain" recordCount="3.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="1.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="219" score="Rain" recordCount="4.0">
+                          <SimplePredicate field="dewp" operator="lessOrEqual" value="48.8"/>
+                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                          <ScoreDistribution value="Rain" recordCount="3.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="222" score="Sunny" recordCount="2.0">
+                          <SimplePredicate field="dewp" operator="greaterThan" value="48.8"/>
+                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="1.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                    <Node id="223" score="Fog" recordCount="4.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="49.3"/>
+                      <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="4.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node id="224" score="Sunny" recordCount="155.0">
+                <SimplePredicate field="weather_day" operator="greaterThan" value="10.0"/>
+                <ScoreDistribution value="Sunny" recordCount="102.0"/>
+                <ScoreDistribution value="Rain" recordCount="16.0"/>
+                <ScoreDistribution value="Fog" recordCount="26.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="11.0"/>
+                <Node id="225" score="Sunny" recordCount="31.0">
+                  <SimplePredicate field="temp" operator="lessOrEqual" value="31.8"/>
+                  <ScoreDistribution value="Sunny" recordCount="17.0"/>
+                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                  <ScoreDistribution value="Fog" recordCount="3.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="11.0"/>
+                  <Node id="226" score="Sunny" recordCount="8.0">
+                    <SimplePredicate field="weather_day" operator="lessOrEqual" value="20.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="7.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="1.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                  <Node id="229" score="Snow" recordCount="23.0">
+                    <SimplePredicate field="weather_day" operator="greaterThan" value="20.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="10.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="2.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="11.0"/>
+                    <Node id="230" score="Sunny" recordCount="10.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="17.3"/>
+                      <ScoreDistribution value="Sunny" recordCount="8.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="1.0"/>
+                    </Node>
+                    <Node id="274" score="Snow" recordCount="13.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="17.3"/>
+                      <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="10.0"/>
+                      <Node id="275" score="Sunny" recordCount="4.0">
+                        <SimplePredicate field="weather_day" operator="lessOrEqual" value="22.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="2.0"/>
+                        <Node id="276" score="Snow" recordCount="2.0">
+                          <SimplePredicate field="weather_month" operator="lessOrEqual" value="11.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="2.0"/>
+                        </Node>
+                        <Node id="277" score="Sunny" recordCount="2.0">
+                          <SimplePredicate field="weather_month" operator="greaterThan" value="11.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="278" score="Snow" recordCount="9.0">
+                        <SimplePredicate field="weather_day" operator="greaterThan" value="22.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="1.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="8.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="281" score="Sunny" recordCount="124.0">
+                  <SimplePredicate field="temp" operator="greaterThan" value="31.8"/>
+                  <ScoreDistribution value="Sunny" recordCount="85.0"/>
+                  <ScoreDistribution value="Rain" recordCount="16.0"/>
+                  <ScoreDistribution value="Fog" recordCount="23.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="282" score="Sunny" recordCount="32.0">
+                    <SimplePredicate field="dewp" operator="lessOrEqual" value="32.2"/>
+                    <ScoreDistribution value="Sunny" recordCount="28.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="4.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="283" score="Sunny" recordCount="18.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="30.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="17.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="286" score="Sunny" recordCount="14.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="30.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="11.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="3.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="287" score="Sunny" recordCount="11.0">
+                        <SimplePredicate field="temp" operator="lessOrEqual" value="43.3"/>
+                        <ScoreDistribution value="Sunny" recordCount="10.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="1.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="290" score="Fog" recordCount="3.0">
+                        <SimplePredicate field="temp" operator="greaterThan" value="43.3"/>
+                        <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="2.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node id="291" score="Sunny" recordCount="92.0">
+                    <SimplePredicate field="dewp" operator="greaterThan" value="32.2"/>
+                    <ScoreDistribution value="Sunny" recordCount="57.0"/>
+                    <ScoreDistribution value="Rain" recordCount="16.0"/>
+                    <ScoreDistribution value="Fog" recordCount="19.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="292" score="Sunny" recordCount="73.0">
+                      <SimplePredicate field="wban" operator="lessOrEqual" value="2421.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="51.0"/>
+                      <ScoreDistribution value="Rain" recordCount="10.0"/>
+                      <ScoreDistribution value="Fog" recordCount="12.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="293" score="Sunny" recordCount="67.0">
+                        <SimplePredicate field="dewp" operator="lessOrEqual" value="49.2"/>
+                        <ScoreDistribution value="Sunny" recordCount="49.0"/>
+                        <ScoreDistribution value="Rain" recordCount="10.0"/>
+                        <ScoreDistribution value="Fog" recordCount="8.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="294" score="Sunny" recordCount="55.0">
+                          <SimplePredicate field="temp" operator="lessOrEqual" value="51.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="37.0"/>
+                          <ScoreDistribution value="Rain" recordCount="10.0"/>
+                          <ScoreDistribution value="Fog" recordCount="8.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="295" score="Sunny" recordCount="52.0">
+                            <SimplePredicate field="temp" operator="lessOrEqual" value="50.3"/>
+                            <ScoreDistribution value="Sunny" recordCount="36.0"/>
+                            <ScoreDistribution value="Rain" recordCount="10.0"/>
+                            <ScoreDistribution value="Fog" recordCount="6.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="296" score="Sunny" recordCount="19.0">
+                              <SimplePredicate field="wban" operator="lessOrEqual" value="2323.0"/>
+                              <ScoreDistribution value="Sunny" recordCount="13.0"/>
+                              <ScoreDistribution value="Rain" recordCount="1.0"/>
+                              <ScoreDistribution value="Fog" recordCount="5.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              <Node id="297" score="Fog" recordCount="6.0">
+                                <SimplePredicate field="temp" operator="lessOrEqual" value="46.4"/>
+                                <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                                <ScoreDistribution value="Rain" recordCount="1.0"/>
+                                <ScoreDistribution value="Fog" recordCount="3.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                <Node id="298" score="Sunny" recordCount="3.0">
+                                  <SimplePredicate field="dewp" operator="lessOrEqual" value="39.2"/>
+                                  <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                  <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                </Node>
+                                <Node id="299" score="Fog" recordCount="3.0">
+                                  <SimplePredicate field="dewp" operator="greaterThan" value="39.2"/>
+                                  <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                                  <ScoreDistribution value="Rain" recordCount="1.0"/>
+                                  <ScoreDistribution value="Fog" recordCount="2.0"/>
+                                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                </Node>
+                              </Node>
+                              <Node id="300" score="Sunny" recordCount="13.0">
+                                <SimplePredicate field="temp" operator="greaterThan" value="46.4"/>
+                                <ScoreDistribution value="Sunny" recordCount="11.0"/>
+                                <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                <ScoreDistribution value="Fog" recordCount="2.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                <Node id="301" score="Sunny" recordCount="10.0">
+                                  <SimplePredicate field="dewp" operator="lessOrEqual" value="45.2"/>
+                                  <ScoreDistribution value="Sunny" recordCount="10.0"/>
+                                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                </Node>
+                                <Node id="302" score="Fog" recordCount="3.0">
+                                  <SimplePredicate field="dewp" operator="greaterThan" value="45.2"/>
+                                  <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                  <ScoreDistribution value="Fog" recordCount="2.0"/>
+                                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                </Node>
+                              </Node>
+                            </Node>
+                            <Node id="303" score="Sunny" recordCount="33.0">
+                              <SimplePredicate field="wban" operator="greaterThan" value="2323.0"/>
+                              <ScoreDistribution value="Sunny" recordCount="23.0"/>
+                              <ScoreDistribution value="Rain" recordCount="9.0"/>
+                              <ScoreDistribution value="Fog" recordCount="1.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              <Node id="304" score="Sunny" recordCount="9.0">
+                                <SimplePredicate field="weather_day" operator="lessOrEqual" value="17.0"/>
+                                <ScoreDistribution value="Sunny" recordCount="9.0"/>
+                                <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              </Node>
+                              <Node id="305" score="Sunny" recordCount="24.0">
+                                <SimplePredicate field="weather_day" operator="greaterThan" value="17.0"/>
+                                <ScoreDistribution value="Sunny" recordCount="14.0"/>
+                                <ScoreDistribution value="Rain" recordCount="9.0"/>
+                                <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                <Node id="306" score="Sunny" recordCount="22.0">
+                                  <SimplePredicate field="temp" operator="lessOrEqual" value="49.2"/>
+                                  <ScoreDistribution value="Sunny" recordCount="14.0"/>
+                                  <ScoreDistribution value="Rain" recordCount="7.0"/>
+                                  <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                  <Node id="331" score="Sunny" recordCount="18.0">
+                                    <SimplePredicate field="temp" operator="lessOrEqual" value="48.0"/>
+                                    <ScoreDistribution value="Sunny" recordCount="10.0"/>
+                                    <ScoreDistribution value="Rain" recordCount="7.0"/>
+                                    <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                    <Node id="332" score="Sunny" recordCount="4.0">
+                                      <SimplePredicate field="temp" operator="lessOrEqual" value="42.0"/>
+                                      <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                    </Node>
+                                    <Node id="333" score="Rain" recordCount="14.0">
+                                      <SimplePredicate field="temp" operator="greaterThan" value="42.0"/>
+                                      <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                                      <ScoreDistribution value="Rain" recordCount="7.0"/>
+                                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                      <Node id="334" score="Sunny" recordCount="11.0">
+                                        <SimplePredicate field="weather_day" operator="lessOrEqual" value="26.0"/>
+                                        <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                                        <ScoreDistribution value="Rain" recordCount="4.0"/>
+                                        <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                        <Node id="335" score="Rain" recordCount="5.0">
+                                          <SimplePredicate field="weather_day" operator="lessOrEqual" value="20.0"/>
+                                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                                          <ScoreDistribution value="Rain" recordCount="3.0"/>
+                                          <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                        </Node>
+                                        <Node id="343" score="Sunny" recordCount="6.0">
+                                          <SimplePredicate field="weather_day" operator="greaterThan" value="20.0"/>
+                                          <ScoreDistribution value="Sunny" recordCount="5.0"/>
+                                          <ScoreDistribution value="Rain" recordCount="1.0"/>
+                                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                        </Node>
+                                      </Node>
+                                      <Node id="346" score="Rain" recordCount="3.0">
+                                        <SimplePredicate field="weather_day" operator="greaterThan" value="26.0"/>
+                                        <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                                        <ScoreDistribution value="Rain" recordCount="3.0"/>
+                                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                      </Node>
+                                    </Node>
+                                  </Node>
+                                  <Node id="347" score="Sunny" recordCount="4.0">
+                                    <SimplePredicate field="temp" operator="greaterThan" value="48.0"/>
+                                    <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                  </Node>
+                                </Node>
+                                <Node id="348" score="Rain" recordCount="2.0">
+                                  <SimplePredicate field="temp" operator="greaterThan" value="49.2"/>
+                                  <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                                  <ScoreDistribution value="Rain" recordCount="2.0"/>
+                                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                </Node>
+                              </Node>
+                            </Node>
+                          </Node>
+                          <Node id="349" score="Fog" recordCount="3.0">
+                            <SimplePredicate field="temp" operator="greaterThan" value="50.3"/>
+                            <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="2.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="350" score="Sunny" recordCount="12.0">
+                          <SimplePredicate field="temp" operator="greaterThan" value="51.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="12.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="351" score="Fog" recordCount="6.0">
+                        <SimplePredicate field="dewp" operator="greaterThan" value="49.2"/>
+                        <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="4.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="356" score="Fog" recordCount="19.0">
+                      <SimplePredicate field="wban" operator="greaterThan" value="2421.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                      <ScoreDistribution value="Rain" recordCount="6.0"/>
+                      <ScoreDistribution value="Fog" recordCount="7.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="357" score="Sunny" recordCount="10.0">
+                        <SimplePredicate field="dewp" operator="lessOrEqual" value="34.5"/>
+                        <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                        <ScoreDistribution value="Rain" recordCount="1.0"/>
+                        <ScoreDistribution value="Fog" recordCount="3.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="358" score="Sunny" recordCount="2.0">
+                          <SimplePredicate field="temp" operator="lessOrEqual" value="38.7"/>
+                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                          <ScoreDistribution value="Rain" recordCount="1.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="359" score="Sunny" recordCount="8.0">
+                          <SimplePredicate field="temp" operator="greaterThan" value="38.7"/>
+                          <ScoreDistribution value="Sunny" recordCount="5.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="3.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="360" score="Fog" recordCount="3.0">
+                            <SimplePredicate field="temp" operator="lessOrEqual" value="43.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="2.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                          <Node id="361" score="Sunny" recordCount="5.0">
+                            <SimplePredicate field="temp" operator="greaterThan" value="43.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="1.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                      </Node>
+                      <Node id="364" score="Rain" recordCount="9.0">
+                        <SimplePredicate field="dewp" operator="greaterThan" value="34.5"/>
+                        <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                        <ScoreDistribution value="Rain" recordCount="5.0"/>
+                        <ScoreDistribution value="Fog" recordCount="4.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="365" score="Rain" recordCount="4.0">
+                          <SimplePredicate field="temp" operator="lessOrEqual" value="45.1"/>
+                          <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                          <ScoreDistribution value="Rain" recordCount="4.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="366" score="Fog" recordCount="5.0">
+                          <SimplePredicate field="temp" operator="greaterThan" value="45.1"/>
+                          <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                          <ScoreDistribution value="Rain" recordCount="1.0"/>
+                          <ScoreDistribution value="Fog" recordCount="4.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </Node>
+        <Node id="3" score="Sunny" recordCount="702.0">
+          <SimplePredicate field="stn" operator="greaterThan" value="725940.0"/>
+          <ScoreDistribution value="Sunny" recordCount="701.0"/>
+          <ScoreDistribution value="Rain" recordCount="1.0"/>
+          <ScoreDistribution value="Fog" recordCount="0.0"/>
+          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+          <ScoreDistribution value="Snow" recordCount="0.0"/>
+        </Node>
+      </Node>
+      <Node id="2" score="Sunny" recordCount="6234.0">
+        <SimplePredicate field="temp" operator="greaterThan" value="52.2"/>
+        <ScoreDistribution value="Sunny" recordCount="6159.0"/>
+        <ScoreDistribution value="Rain" recordCount="39.0"/>
+        <ScoreDistribution value="Fog" recordCount="36.0"/>
+        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+        <ScoreDistribution value="Snow" recordCount="0.0"/>
+        <Node id="32" score="Sunny" recordCount="2237.0">
+          <SimplePredicate field="temp" operator="lessOrEqual" value="58.1"/>
+          <ScoreDistribution value="Sunny" recordCount="2171.0"/>
+          <ScoreDistribution value="Rain" recordCount="32.0"/>
+          <ScoreDistribution value="Fog" recordCount="34.0"/>
+          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+          <ScoreDistribution value="Snow" recordCount="0.0"/>
+          <Node id="33" score="Sunny" recordCount="1069.0">
+            <SimplePredicate field="wban" operator="lessOrEqual" value="2421.0"/>
+            <ScoreDistribution value="Sunny" recordCount="1006.0"/>
+            <ScoreDistribution value="Rain" recordCount="31.0"/>
+            <ScoreDistribution value="Fog" recordCount="32.0"/>
+            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+            <ScoreDistribution value="Snow" recordCount="0.0"/>
+            <Node id="34" score="Sunny" recordCount="926.0">
+              <SimplePredicate field="wban" operator="lessOrEqual" value="2325.0"/>
+              <ScoreDistribution value="Sunny" recordCount="900.0"/>
+              <ScoreDistribution value="Rain" recordCount="15.0"/>
+              <ScoreDistribution value="Fog" recordCount="11.0"/>
+              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+              <ScoreDistribution value="Snow" recordCount="0.0"/>
+              <Node id="36" score="Sunny" recordCount="566.0">
+                <SimplePredicate field="dewp" operator="lessOrEqual" value="47.1"/>
+                <ScoreDistribution value="Sunny" recordCount="563.0"/>
+                <ScoreDistribution value="Rain" recordCount="2.0"/>
+                <ScoreDistribution value="Fog" recordCount="1.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="37" score="Sunny" recordCount="539.0">
+                  <SimplePredicate field="temp" operator="lessOrEqual" value="57.7"/>
+                  <ScoreDistribution value="Sunny" recordCount="537.0"/>
+                  <ScoreDistribution value="Rain" recordCount="2.0"/>
+                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="126" score="Sunny" recordCount="147.0">
+                    <SimplePredicate field="temp" operator="lessOrEqual" value="53.6"/>
+                    <ScoreDistribution value="Sunny" recordCount="145.0"/>
+                    <ScoreDistribution value="Rain" recordCount="2.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="127" score="Sunny" recordCount="132.0">
+                      <SimplePredicate field="temp" operator="lessOrEqual" value="53.4"/>
+                      <ScoreDistribution value="Sunny" recordCount="132.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="128" score="Sunny" recordCount="15.0">
+                      <SimplePredicate field="temp" operator="greaterThan" value="53.4"/>
+                      <ScoreDistribution value="Sunny" recordCount="13.0"/>
+                      <ScoreDistribution value="Rain" recordCount="2.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="129" score="Sunny" recordCount="11.0">
+                        <SimplePredicate field="dewp" operator="lessOrEqual" value="42.2"/>
+                        <ScoreDistribution value="Sunny" recordCount="11.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="130" score="Sunny" recordCount="4.0">
+                        <SimplePredicate field="dewp" operator="greaterThan" value="42.2"/>
+                        <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                        <ScoreDistribution value="Rain" recordCount="2.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="131" score="Rain" recordCount="2.0">
+                          <SimplePredicate field="dewp" operator="lessOrEqual" value="44.7"/>
+                          <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                          <ScoreDistribution value="Rain" recordCount="2.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="132" score="Sunny" recordCount="2.0">
+                          <SimplePredicate field="dewp" operator="greaterThan" value="44.7"/>
+                          <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node id="135" score="Sunny" recordCount="392.0">
+                    <SimplePredicate field="temp" operator="greaterThan" value="53.6"/>
+                    <ScoreDistribution value="Sunny" recordCount="392.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                </Node>
+                <Node id="136" score="Sunny" recordCount="27.0">
+                  <SimplePredicate field="temp" operator="greaterThan" value="57.7"/>
+                  <ScoreDistribution value="Sunny" recordCount="26.0"/>
+                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                  <ScoreDistribution value="Fog" recordCount="1.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="141" score="Sunny" recordCount="360.0">
+                <SimplePredicate field="dewp" operator="greaterThan" value="47.1"/>
+                <ScoreDistribution value="Sunny" recordCount="337.0"/>
+                <ScoreDistribution value="Rain" recordCount="13.0"/>
+                <ScoreDistribution value="Fog" recordCount="10.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="142" score="Sunny" recordCount="235.0">
+                  <SimplePredicate field="stn" operator="lessOrEqual" value="722920.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="234.0"/>
+                  <ScoreDistribution value="Rain" recordCount="1.0"/>
+                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                </Node>
+                <Node id="154" score="Sunny" recordCount="125.0">
+                  <SimplePredicate field="stn" operator="greaterThan" value="722920.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="103.0"/>
+                  <ScoreDistribution value="Rain" recordCount="12.0"/>
+                  <ScoreDistribution value="Fog" recordCount="10.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="155" score="Sunny" recordCount="21.0">
+                    <SimplePredicate field="stn" operator="lessOrEqual" value="723840.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="11.0"/>
+                    <ScoreDistribution value="Rain" recordCount="9.0"/>
+                    <ScoreDistribution value="Fog" recordCount="1.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="156" score="Sunny" recordCount="10.0">
+                      <SimplePredicate field="weather_day" operator="lessOrEqual" value="17.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="8.0"/>
+                      <ScoreDistribution value="Rain" recordCount="1.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="236" score="Rain" recordCount="11.0">
+                      <SimplePredicate field="weather_day" operator="greaterThan" value="17.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                      <ScoreDistribution value="Rain" recordCount="8.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="237" score="Rain" recordCount="9.0">
+                        <SimplePredicate field="weather_day" operator="lessOrEqual" value="23.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                        <ScoreDistribution value="Rain" recordCount="8.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="240" score="Sunny" recordCount="2.0">
+                        <SimplePredicate field="weather_day" operator="greaterThan" value="23.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                  <Node id="241" score="Sunny" recordCount="104.0">
+                    <SimplePredicate field="stn" operator="greaterThan" value="723840.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="92.0"/>
+                    <ScoreDistribution value="Rain" recordCount="3.0"/>
+                    <ScoreDistribution value="Fog" recordCount="9.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="242" score="Sunny" recordCount="101.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="54.7"/>
+                      <ScoreDistribution value="Sunny" recordCount="91.0"/>
+                      <ScoreDistribution value="Rain" recordCount="2.0"/>
+                      <ScoreDistribution value="Fog" recordCount="8.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="243" score="Sunny" recordCount="4.0">
+                        <SimplePredicate field="temp" operator="lessOrEqual" value="52.6"/>
+                        <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="2.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="246" score="Sunny" recordCount="97.0">
+                        <SimplePredicate field="temp" operator="greaterThan" value="52.6"/>
+                        <ScoreDistribution value="Sunny" recordCount="89.0"/>
+                        <ScoreDistribution value="Rain" recordCount="2.0"/>
+                        <ScoreDistribution value="Fog" recordCount="6.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="247" score="Sunny" recordCount="95.0">
+                          <SimplePredicate field="temp" operator="lessOrEqual" value="58.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="88.0"/>
+                          <ScoreDistribution value="Rain" recordCount="2.0"/>
+                          <ScoreDistribution value="Fog" recordCount="5.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="248" score="Sunny" recordCount="62.0">
+                            <SimplePredicate field="stn" operator="lessOrEqual" value="724920.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="55.0"/>
+                            <ScoreDistribution value="Rain" recordCount="2.0"/>
+                            <ScoreDistribution value="Fog" recordCount="5.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="249" score="Sunny" recordCount="31.0">
+                              <SimplePredicate field="stn" operator="lessOrEqual" value="724830.0"/>
+                              <ScoreDistribution value="Sunny" recordCount="31.0"/>
+                              <ScoreDistribution value="Rain" recordCount="0.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                            <Node id="250" score="Sunny" recordCount="31.0">
+                              <SimplePredicate field="stn" operator="greaterThan" value="724830.0"/>
+                              <ScoreDistribution value="Sunny" recordCount="24.0"/>
+                              <ScoreDistribution value="Rain" recordCount="2.0"/>
+                              <ScoreDistribution value="Fog" recordCount="5.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              <Node id="251" score="Sunny" recordCount="11.0">
+                                <SimplePredicate field="temp" operator="lessOrEqual" value="54.2"/>
+                                <ScoreDistribution value="Sunny" recordCount="7.0"/>
+                                <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                <ScoreDistribution value="Fog" recordCount="4.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                <Node id="252" score="Sunny" recordCount="8.0">
+                                  <SimplePredicate field="weather_day" operator="lessOrEqual" value="18.0"/>
+                                  <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                  <ScoreDistribution value="Fog" recordCount="4.0"/>
+                                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                  <Node id="253" score="Sunny" recordCount="4.0">
+                                    <SimplePredicate field="temp" operator="lessOrEqual" value="53.6"/>
+                                    <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                    <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                  </Node>
+                                  <Node id="256" score="Fog" recordCount="4.0">
+                                    <SimplePredicate field="temp" operator="greaterThan" value="53.6"/>
+                                    <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                    <ScoreDistribution value="Fog" recordCount="3.0"/>
+                                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                  </Node>
+                                </Node>
+                                <Node id="259" score="Sunny" recordCount="3.0">
+                                  <SimplePredicate field="weather_day" operator="greaterThan" value="18.0"/>
+                                  <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                                </Node>
+                              </Node>
+                              <Node id="260" score="Sunny" recordCount="20.0">
+                                <SimplePredicate field="temp" operator="greaterThan" value="54.2"/>
+                                <ScoreDistribution value="Sunny" recordCount="17.0"/>
+                                <ScoreDistribution value="Rain" recordCount="2.0"/>
+                                <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              </Node>
+                            </Node>
+                          </Node>
+                          <Node id="269" score="Sunny" recordCount="33.0">
+                            <SimplePredicate field="stn" operator="greaterThan" value="724920.0"/>
+                            <ScoreDistribution value="Sunny" recordCount="33.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="270" score="Sunny" recordCount="2.0">
+                          <SimplePredicate field="temp" operator="greaterThan" value="58.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="1.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                    </Node>
+                    <Node id="271" score="Sunny" recordCount="3.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="54.7"/>
+                      <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                      <ScoreDistribution value="Rain" recordCount="1.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node id="272" score="Sunny" recordCount="143.0">
+              <SimplePredicate field="wban" operator="greaterThan" value="2325.0"/>
+              <ScoreDistribution value="Sunny" recordCount="106.0"/>
+              <ScoreDistribution value="Rain" recordCount="16.0"/>
+              <ScoreDistribution value="Fog" recordCount="21.0"/>
+              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+              <ScoreDistribution value="Snow" recordCount="0.0"/>
+              <Node id="273" score="Sunny" recordCount="123.0">
+                <SimplePredicate field="dewp" operator="lessOrEqual" value="53.0"/>
+                <ScoreDistribution value="Sunny" recordCount="101.0"/>
+                <ScoreDistribution value="Rain" recordCount="11.0"/>
+                <ScoreDistribution value="Fog" recordCount="11.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="308" score="Sunny" recordCount="83.0">
+                  <SimplePredicate field="dewp" operator="lessOrEqual" value="51.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="72.0"/>
+                  <ScoreDistribution value="Rain" recordCount="10.0"/>
+                  <ScoreDistribution value="Fog" recordCount="1.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="309" score="Sunny" recordCount="62.0">
+                    <SimplePredicate field="weather_month" operator="lessOrEqual" value="9.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="58.0"/>
+                    <ScoreDistribution value="Rain" recordCount="4.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="310" score="Sunny" recordCount="17.0">
+                      <SimplePredicate field="weather_month" operator="lessOrEqual" value="5.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="13.0"/>
+                      <ScoreDistribution value="Rain" recordCount="4.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="311" score="Sunny" recordCount="11.0">
+                        <SimplePredicate field="temp" operator="lessOrEqual" value="53.5"/>
+                        <ScoreDistribution value="Sunny" recordCount="7.0"/>
+                        <ScoreDistribution value="Rain" recordCount="4.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="312" score="Sunny" recordCount="8.0">
+                          <SimplePredicate field="temp" operator="lessOrEqual" value="53.3"/>
+                          <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                          <ScoreDistribution value="Rain" recordCount="2.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="313" score="Sunny" recordCount="4.0">
+                            <SimplePredicate field="temp" operator="lessOrEqual" value="52.7"/>
+                            <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                            <ScoreDistribution value="Rain" recordCount="2.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="314" score="Sunny" recordCount="2.0">
+                              <SimplePredicate field="temp" operator="lessOrEqual" value="52.5"/>
+                              <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                              <ScoreDistribution value="Rain" recordCount="0.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                            <Node id="315" score="Rain" recordCount="2.0">
+                              <SimplePredicate field="temp" operator="greaterThan" value="52.5"/>
+                              <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                              <ScoreDistribution value="Rain" recordCount="2.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                          </Node>
+                          <Node id="316" score="Sunny" recordCount="4.0">
+                            <SimplePredicate field="temp" operator="greaterThan" value="52.7"/>
+                            <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="0.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                        </Node>
+                        <Node id="317" score="Rain" recordCount="3.0">
+                          <SimplePredicate field="temp" operator="greaterThan" value="53.3"/>
+                          <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                          <ScoreDistribution value="Rain" recordCount="2.0"/>
+                          <ScoreDistribution value="Fog" recordCount="0.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                      </Node>
+                      <Node id="318" score="Sunny" recordCount="6.0">
+                        <SimplePredicate field="temp" operator="greaterThan" value="53.5"/>
+                        <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                    <Node id="319" score="Sunny" recordCount="45.0">
+                      <SimplePredicate field="weather_month" operator="greaterThan" value="5.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="45.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                  <Node id="320" score="Sunny" recordCount="21.0">
+                    <SimplePredicate field="weather_month" operator="greaterThan" value="9.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="14.0"/>
+                    <ScoreDistribution value="Rain" recordCount="6.0"/>
+                    <ScoreDistribution value="Fog" recordCount="1.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="321" score="Sunny" recordCount="13.0">
+                      <SimplePredicate field="weather_day" operator="lessOrEqual" value="16.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="11.0"/>
+                      <ScoreDistribution value="Rain" recordCount="1.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="326" score="Rain" recordCount="8.0">
+                      <SimplePredicate field="weather_day" operator="greaterThan" value="16.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                      <ScoreDistribution value="Rain" recordCount="5.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="327" score="Rain" recordCount="6.0">
+                        <SimplePredicate field="weather_day" operator="lessOrEqual" value="28.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                        <ScoreDistribution value="Rain" recordCount="5.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="330" score="Sunny" recordCount="2.0">
+                        <SimplePredicate field="weather_day" operator="greaterThan" value="28.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="0.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="338" score="Sunny" recordCount="40.0">
+                  <SimplePredicate field="dewp" operator="greaterThan" value="51.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="29.0"/>
+                  <ScoreDistribution value="Rain" recordCount="1.0"/>
+                  <ScoreDistribution value="Fog" recordCount="10.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="339" score="Fog" recordCount="4.0">
+                    <SimplePredicate field="temp" operator="lessOrEqual" value="52.8"/>
+                    <ScoreDistribution value="Sunny" recordCount="1.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="3.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                  <Node id="342" score="Sunny" recordCount="36.0">
+                    <SimplePredicate field="temp" operator="greaterThan" value="52.8"/>
+                    <ScoreDistribution value="Sunny" recordCount="28.0"/>
+                    <ScoreDistribution value="Rain" recordCount="1.0"/>
+                    <ScoreDistribution value="Fog" recordCount="7.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="369" score="Sunny" recordCount="9.0">
+                      <SimplePredicate field="weather_day" operator="lessOrEqual" value="6.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="9.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="370" score="Sunny" recordCount="27.0">
+                      <SimplePredicate field="weather_day" operator="greaterThan" value="6.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="19.0"/>
+                      <ScoreDistribution value="Rain" recordCount="1.0"/>
+                      <ScoreDistribution value="Fog" recordCount="7.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      <Node id="371" score="Fog" recordCount="2.0">
+                        <SimplePredicate field="weather_day" operator="lessOrEqual" value="8.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                        <ScoreDistribution value="Rain" recordCount="0.0"/>
+                        <ScoreDistribution value="Fog" recordCount="2.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                      </Node>
+                      <Node id="372" score="Sunny" recordCount="25.0">
+                        <SimplePredicate field="weather_day" operator="greaterThan" value="8.0"/>
+                        <ScoreDistribution value="Sunny" recordCount="19.0"/>
+                        <ScoreDistribution value="Rain" recordCount="1.0"/>
+                        <ScoreDistribution value="Fog" recordCount="5.0"/>
+                        <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                        <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        <Node id="373" score="Sunny" recordCount="12.0">
+                          <SimplePredicate field="dewp" operator="lessOrEqual" value="52.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="11.0"/>
+                          <ScoreDistribution value="Rain" recordCount="0.0"/>
+                          <ScoreDistribution value="Fog" recordCount="1.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                        </Node>
+                        <Node id="376" score="Sunny" recordCount="13.0">
+                          <SimplePredicate field="dewp" operator="greaterThan" value="52.0"/>
+                          <ScoreDistribution value="Sunny" recordCount="8.0"/>
+                          <ScoreDistribution value="Rain" recordCount="1.0"/>
+                          <ScoreDistribution value="Fog" recordCount="4.0"/>
+                          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                          <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          <Node id="377" score="Fog" recordCount="3.0">
+                            <SimplePredicate field="temp" operator="lessOrEqual" value="54.2"/>
+                            <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                            <ScoreDistribution value="Rain" recordCount="0.0"/>
+                            <ScoreDistribution value="Fog" recordCount="3.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                          </Node>
+                          <Node id="378" score="Sunny" recordCount="10.0">
+                            <SimplePredicate field="temp" operator="greaterThan" value="54.2"/>
+                            <ScoreDistribution value="Sunny" recordCount="8.0"/>
+                            <ScoreDistribution value="Rain" recordCount="1.0"/>
+                            <ScoreDistribution value="Fog" recordCount="1.0"/>
+                            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                            <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            <Node id="379" score="Sunny" recordCount="4.0">
+                              <SimplePredicate field="dewp" operator="lessOrEqual" value="52.2"/>
+                              <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                              <ScoreDistribution value="Rain" recordCount="1.0"/>
+                              <ScoreDistribution value="Fog" recordCount="1.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              <Node id="380" score="Rain" recordCount="2.0">
+                                <SimplePredicate field="temp" operator="lessOrEqual" value="55.8"/>
+                                <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                                <ScoreDistribution value="Rain" recordCount="1.0"/>
+                                <ScoreDistribution value="Fog" recordCount="1.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              </Node>
+                              <Node id="381" score="Sunny" recordCount="2.0">
+                                <SimplePredicate field="temp" operator="greaterThan" value="55.8"/>
+                                <ScoreDistribution value="Sunny" recordCount="2.0"/>
+                                <ScoreDistribution value="Rain" recordCount="0.0"/>
+                                <ScoreDistribution value="Fog" recordCount="0.0"/>
+                                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                              </Node>
+                            </Node>
+                            <Node id="382" score="Sunny" recordCount="6.0">
+                              <SimplePredicate field="dewp" operator="greaterThan" value="52.2"/>
+                              <ScoreDistribution value="Sunny" recordCount="6.0"/>
+                              <ScoreDistribution value="Rain" recordCount="0.0"/>
+                              <ScoreDistribution value="Fog" recordCount="0.0"/>
+                              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                              <ScoreDistribution value="Snow" recordCount="0.0"/>
+                            </Node>
+                          </Node>
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+              <Node id="383" score="Fog" recordCount="20.0">
+                <SimplePredicate field="dewp" operator="greaterThan" value="53.0"/>
+                <ScoreDistribution value="Sunny" recordCount="5.0"/>
+                <ScoreDistribution value="Rain" recordCount="5.0"/>
+                <ScoreDistribution value="Fog" recordCount="10.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="384" score="Fog" recordCount="8.0">
+                  <SimplePredicate field="temp" operator="lessOrEqual" value="55.3"/>
+                  <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                  <ScoreDistribution value="Rain" recordCount="1.0"/>
+                  <ScoreDistribution value="Fog" recordCount="7.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                </Node>
+                <Node id="387" score="Sunny" recordCount="12.0">
+                  <SimplePredicate field="temp" operator="greaterThan" value="55.3"/>
+                  <ScoreDistribution value="Sunny" recordCount="5.0"/>
+                  <ScoreDistribution value="Rain" recordCount="4.0"/>
+                  <ScoreDistribution value="Fog" recordCount="3.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="388" score="Sunny" recordCount="6.0">
+                    <SimplePredicate field="temp" operator="lessOrEqual" value="56.5"/>
+                    <ScoreDistribution value="Sunny" recordCount="5.0"/>
+                    <ScoreDistribution value="Rain" recordCount="1.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                  <Node id="391" score="Rain" recordCount="6.0">
+                    <SimplePredicate field="temp" operator="greaterThan" value="56.5"/>
+                    <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                    <ScoreDistribution value="Rain" recordCount="3.0"/>
+                    <ScoreDistribution value="Fog" recordCount="3.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="392" score="Rain" recordCount="4.0">
+                      <SimplePredicate field="weather_day" operator="lessOrEqual" value="24.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                      <ScoreDistribution value="Rain" recordCount="3.0"/>
+                      <ScoreDistribution value="Fog" recordCount="1.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="395" score="Fog" recordCount="2.0">
+                      <SimplePredicate field="weather_day" operator="greaterThan" value="24.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="2.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="396" score="Sunny" recordCount="1168.0">
+            <SimplePredicate field="wban" operator="greaterThan" value="2421.0"/>
+            <ScoreDistribution value="Sunny" recordCount="1165.0"/>
+            <ScoreDistribution value="Rain" recordCount="1.0"/>
+            <ScoreDistribution value="Fog" recordCount="2.0"/>
+            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+            <ScoreDistribution value="Snow" recordCount="0.0"/>
+          </Node>
+        </Node>
+        <Node id="35" score="Sunny" recordCount="3997.0">
+          <SimplePredicate field="temp" operator="greaterThan" value="58.1"/>
+          <ScoreDistribution value="Sunny" recordCount="3988.0"/>
+          <ScoreDistribution value="Rain" recordCount="7.0"/>
+          <ScoreDistribution value="Fog" recordCount="2.0"/>
+          <ScoreDistribution value="Thunder" recordCount="0.0"/>
+          <ScoreDistribution value="Snow" recordCount="0.0"/>
+          <Node id="133" score="Sunny" recordCount="395.0">
+            <SimplePredicate field="temp" operator="lessOrEqual" value="59.4"/>
+            <ScoreDistribution value="Sunny" recordCount="391.0"/>
+            <ScoreDistribution value="Rain" recordCount="3.0"/>
+            <ScoreDistribution value="Fog" recordCount="1.0"/>
+            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+            <ScoreDistribution value="Snow" recordCount="0.0"/>
+            <Node id="148" score="Sunny" recordCount="298.0">
+              <SimplePredicate field="weather_month" operator="lessOrEqual" value="9.0"/>
+              <ScoreDistribution value="Sunny" recordCount="297.0"/>
+              <ScoreDistribution value="Rain" recordCount="0.0"/>
+              <ScoreDistribution value="Fog" recordCount="1.0"/>
+              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+              <ScoreDistribution value="Snow" recordCount="0.0"/>
+            </Node>
+            <Node id="174" score="Sunny" recordCount="97.0">
+              <SimplePredicate field="weather_month" operator="greaterThan" value="9.0"/>
+              <ScoreDistribution value="Sunny" recordCount="94.0"/>
+              <ScoreDistribution value="Rain" recordCount="3.0"/>
+              <ScoreDistribution value="Fog" recordCount="0.0"/>
+              <ScoreDistribution value="Thunder" recordCount="0.0"/>
+              <ScoreDistribution value="Snow" recordCount="0.0"/>
+              <Node id="175" score="Sunny" recordCount="93.0">
+                <SimplePredicate field="temp" operator="lessOrEqual" value="59.3"/>
+                <ScoreDistribution value="Sunny" recordCount="91.0"/>
+                <ScoreDistribution value="Rain" recordCount="2.0"/>
+                <ScoreDistribution value="Fog" recordCount="0.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+                <Node id="176" score="Sunny" recordCount="23.0">
+                  <SimplePredicate field="wban" operator="lessOrEqual" value="2317.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="21.0"/>
+                  <ScoreDistribution value="Rain" recordCount="2.0"/>
+                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  <Node id="177" score="Sunny" recordCount="17.0">
+                    <SimplePredicate field="weather_day" operator="lessOrEqual" value="17.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="17.0"/>
+                    <ScoreDistribution value="Rain" recordCount="0.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                  </Node>
+                  <Node id="178" score="Sunny" recordCount="6.0">
+                    <SimplePredicate field="weather_day" operator="greaterThan" value="17.0"/>
+                    <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                    <ScoreDistribution value="Rain" recordCount="2.0"/>
+                    <ScoreDistribution value="Fog" recordCount="0.0"/>
+                    <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                    <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    <Node id="179" score="Sunny" recordCount="4.0">
+                      <SimplePredicate field="dewp" operator="lessOrEqual" value="49.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="4.0"/>
+                      <ScoreDistribution value="Rain" recordCount="0.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                    <Node id="180" score="Rain" recordCount="2.0">
+                      <SimplePredicate field="dewp" operator="greaterThan" value="49.0"/>
+                      <ScoreDistribution value="Sunny" recordCount="0.0"/>
+                      <ScoreDistribution value="Rain" recordCount="2.0"/>
+                      <ScoreDistribution value="Fog" recordCount="0.0"/>
+                      <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                      <ScoreDistribution value="Snow" recordCount="0.0"/>
+                    </Node>
+                  </Node>
+                </Node>
+                <Node id="181" score="Sunny" recordCount="70.0">
+                  <SimplePredicate field="wban" operator="greaterThan" value="2317.0"/>
+                  <ScoreDistribution value="Sunny" recordCount="70.0"/>
+                  <ScoreDistribution value="Rain" recordCount="0.0"/>
+                  <ScoreDistribution value="Fog" recordCount="0.0"/>
+                  <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                  <ScoreDistribution value="Snow" recordCount="0.0"/>
+                </Node>
+              </Node>
+              <Node id="182" score="Sunny" recordCount="4.0">
+                <SimplePredicate field="temp" operator="greaterThan" value="59.3"/>
+                <ScoreDistribution value="Sunny" recordCount="3.0"/>
+                <ScoreDistribution value="Rain" recordCount="1.0"/>
+                <ScoreDistribution value="Fog" recordCount="0.0"/>
+                <ScoreDistribution value="Thunder" recordCount="0.0"/>
+                <ScoreDistribution value="Snow" recordCount="0.0"/>
+              </Node>
+            </Node>
+          </Node>
+          <Node id="307" score="Sunny" recordCount="3602.0">
+            <SimplePredicate field="temp" operator="greaterThan" value="59.4"/>
+            <ScoreDistribution value="Sunny" recordCount="3597.0"/>
+            <ScoreDistribution value="Rain" recordCount="4.0"/>
+            <ScoreDistribution value="Fog" recordCount="1.0"/>
+            <ScoreDistribution value="Thunder" recordCount="0.0"/>
+            <ScoreDistribution value="Snow" recordCount="0.0"/>
+          </Node>
+        </Node>
+      </Node>
+    </Node>
+  </TreeModel>
+</PMML>
